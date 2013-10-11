@@ -4,7 +4,7 @@
  * Description: Make an Epic statement with this responsive WordPress blog theme. The perfect combination of minimalism and bold design for your journal, photo stream or video blog.
  * Author: Slocum Design Studio
  * Author URI: http://slocumstudio.com
- * Version: 1.0
+ * Version: 1.0.2
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl.html
  * Tags: blue, green, orange, pink, purple, red, white, light, two-columns, left-sidebar, right-sidebar, flexible-width, custom-colors, custom-menu, editor-style, featured-images, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
@@ -102,7 +102,11 @@ a {
 	color: #565656;
 }
 
-p{
+a:hover {
+	text-decoration: none;
+}
+
+p {
 	line-height: 1.5em;
 }
 
@@ -244,14 +248,14 @@ section.logo-box{
 	font-size: 18px;
 	font-weight: 400;
 	text-transform: uppercase;
-	color: #ae5f11;
+	color: #999;
 	line-height: 1em;
 	display: block;
 }
 
 header #title {
 	margin: 0 0 0.25em;
-	line-height: 1.5em;
+	line-height: 2.25em;
 }
 
 header #title.has-logo {
@@ -707,8 +711,9 @@ section.breadcrumb{
 article.content{
 	width: 65%;
 	float: left;
-	margin-right: 1%;
 	margin-bottom: 40px;
+	padding-right: 1.5%;
+	border-right: 1px solid #f2f2f2;
 }
 
 article.full-width-content {
@@ -718,6 +723,7 @@ article.full-width-content {
 article.content h1, article.full-width-content h1, h1.page-title{
 	margin: 0 0 0.25em;
 	font-size: 36px;
+	font-weight: 400;
 	line-height: 36px;
 }
 
@@ -1307,6 +1313,7 @@ ol.comment-list > li:nth-child(even) article.comment {
 	padding: 2%;
 	background: #e8e8e8;
 	border: 1px dashed #dbdbdb;
+	font-size: 14px;
 }
 
 a#cancel-comment-reply-link {
@@ -1320,7 +1327,7 @@ a#cancel-comment-reply-link {
 
 aside.sidebar{
 	width: 31%;
-	margin-top: 1em;
+	/*margin-top: 1em;*/
 	padding: 0 0 0 2%;
 	float: right;
 }
@@ -1348,6 +1355,8 @@ aside.sidebar{
 	 -------------  */
 .widget-title, .widgettitle {
 	margin: 0 0 0.5em;
+	font-size: 1.5em;
+	font-weight: 400;
 }
 
 .widget ul li, .footer-widget ul li {
@@ -1418,6 +1427,7 @@ section.footer-widget{
 	font-size: 16px;
 	width: 21%;
 	padding: 1%;
+	background: #f2f2f2;
 	display: inline-block;
 	vertical-align: top;
 	-webkit-transition: all .3s ease-in-out;
@@ -1536,6 +1546,7 @@ ul.footer-nav li ul {
 
 	header #title {
 		font-size: 1.35em;
+		line-height: 2em;
 	}
 
 	#searchform input {
@@ -1552,11 +1563,12 @@ ul.footer-nav li ul {
 
 	header #title {
 		font-size: 1.35em;
+		line-height: 2em;
 	}
 
 	article-content h1, h1.page-title, h1{
-		font-size: 28px !important;
-		line-height: 28px !important;
+		font-size: 28px;
+		line-height: 28px;
 	}
 }
 
@@ -1626,8 +1638,6 @@ ul.footer-nav li ul {
 		background: #4c4c4c;
 		position: relative;
 		z-index: 5;
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
 	}
 
 	/* ------------------
@@ -1665,8 +1675,12 @@ ul.footer-nav li ul {
 
 	nav .primary-nav {
 		height: auto;
+		margin-top: 0;
+		margin-bottom: 0;
 		float: none;
 		background: transparent;
+		border-top: none;
+		border-bottom: none;
 		-webkit-box-shadow: none;
 		box-shadow: none;
 		z-index: 2;
@@ -1717,6 +1731,7 @@ ul.footer-nav li ul {
 	nav .primary-nav.open {
 		padding-top: 36px;
 		overflow: hidden;
+		position: absolute;
 	}
 
 	nav.top-nav.open ul ul.sub-menu {
@@ -1817,6 +1832,7 @@ ul.footer-nav li ul {
 
 	header #title {
 		font-size: 1.35em;
+		line-height: 1.5em;
 	}
 
 	header .slogan {
@@ -1825,7 +1841,9 @@ ul.footer-nav li ul {
 
 	aside.nav-options {
 		width: 80%;
+		margin: 0 auto;
 		text-align: center;
+		float: none;
 	}
 
 	/* Search Form */
@@ -1838,8 +1856,10 @@ ul.footer-nav li ul {
 	article.content {
 		width: 100%;
 		margin: 0;
+		padding: 0;
 		border-top: 1px solid #ccc;
 		float: none;
+		border: none;
 	}
 
 	section.latest-post {
@@ -1899,7 +1919,6 @@ ul.footer-nav li ul {
 		margin: 1em 0 0;
 		padding: 0;
 		float: none;
-		border: none;
 	}
 
 

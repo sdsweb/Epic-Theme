@@ -97,7 +97,7 @@ if ( ! function_exists( 'sds_featured_image' ) ) {
 			</a>
 		</figure>
 	<?php
-		else :
+		elseif ( has_post_thumbnail() ) :
 	?>
 		<figure class="post-image <?php echo $featured_image_size . '-featured-image ' . $featured_image_size . '-post-image'; ?>">
 			<?php the_post_thumbnail( $featured_image_size ); ?>
@@ -388,7 +388,7 @@ if ( ! function_exists( 'sds_post_meta' ) ) {
 			<p>
 			<?php
 				printf( __( 'This entry was posted in %1$s and tagged in %2$s.', 'epic' ),
-				get_the_category_list( ', ', 'multiple' ),
+				get_the_category_list( ', ', 'single' ),
 				get_the_tag_list( '', ', ' ) );
 			?>
 			</p>
@@ -399,7 +399,7 @@ if ( ! function_exists( 'sds_post_meta' ) ) {
 			<p>
 			<?php
 				printf( __( 'This entry was posted in %1$s.', 'epic' ),
-				get_the_category_list( ', ', 'multiple' ) );
+				get_the_category_list( ', ', 'single' ) );
 			?>
 			</p>
 		<?php
@@ -428,8 +428,8 @@ if ( ! function_exists( 'sds_post_navigation' ) ) {
 
 		$pagination_links = paginate_links( array(
 			'base' => esc_url( get_pagenum_link() ) . '%_%', // %_% will be replaced with format below
-			'format' => ( ! $wp_query->is_search ) ? '?paged=%#%' : '&paged=%#%', // %#% will be replaced with page number
-			'current' => max( 1, get_query_var('paged') ), // Get whichever is the max out of 1 and the current page count
+			'format' => ( get_option( 'permalink_structure' ) && ! $wp_query->is_search ) ? '?paged=%#%' : '&paged=%#%', // %#% will be replaced with page number
+			'current' => max( 1, get_query_var( 'paged' ) ), // Get whichever is the max out of 1 and the current page count
 			'total' => $wp_query->max_num_pages, // Get total number of pages in current query
 			'next_text' => 'Next &#8594;',
 			'prev_text' => '&#8592; Previous',
@@ -633,9 +633,9 @@ function sds_widgets_init() {
 		'name'          => __( 'Primary Sidebar', 'epic' ),
 		'id'            => 'primary-sidebar',
 		'description'   => __( 'This widget area is the primary widget area.', 'epic' ),
-		'before_widget' => '<section id="primary-sidebar-%1$s" class="widget primary-sidebar %2$s">',
+		'before_widget' => '<section id="primary-sidebar-%1$s" class="widget primary-sidebar primary-sidebar-widget %2$s">',
 		'after_widget'  => '<section class="clear"></section></section>',
-		'before_title'  => '<h3 class="widgettitle">',
+		'before_title'  => '<h3 class="widgettitle widget-title primary-sidebar-widget-title">',
 		'after_title'   => '</h3>',
 	) );
 
@@ -644,7 +644,7 @@ function sds_widgets_init() {
 		'name'          => __( 'Front Page Slider', 'epic' ),
 		'id'            => 'front-page-slider-sidebar',
 		'description'   => __( '*This widget area is only displayed if a Front Page is selected via Settings > Reading in the Dashboard. Specifically formatted for Soliloquy or SlideDeck sliders.* This widget area is displayed above the content on the Front Page.', 'epic' ),
-		'before_widget' => '<section id="front-page-slider-%1$s" class="front-page-slider slider %2$s">',
+		'before_widget' => '<section id="front-page-slider-%1$s" class="widget front-page-slider front-page-slider-widget slider %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widgettitle widget-title front-page-slider-title">',
 		'after_title'   => '</h3>'
@@ -655,7 +655,7 @@ function sds_widgets_init() {
 		'name'          => __( 'Front Page', 'epic' ),
 		'id'            => 'front-page-sidebar',
 		'description'   => __( '*This widget area is only displayed if a Front Page is selected via Settings > Reading in the Dashboard.* This widget area is displayed below the Front Page Slider on the Front Page and will replace the Front Page content.', 'epic' ),
-		'before_widget' => '<section id="front-page-%1$s" class="front-page %2$s">',
+		'before_widget' => '<section id="front-page-%1$s" class="widget front-page front-page-sidebar %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widgettitle widget-title front-page-title">',
 		'after_title'   => '</h3>'
@@ -668,7 +668,7 @@ function sds_widgets_init() {
 		'description'   => __( 'This widget area is used to display a call to action in the header', 'epic' ),
 		'before_widget' => '<section id="header-call-to-action-%1$s" class="widget header-call-to-action-widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widgettitle">',
+		'before_title'  => '<h3 class="widgettitle widget-title header-call-to-action-widget-title">',
 		'after_title'   => '</h3>',
 	) );
 
@@ -677,7 +677,7 @@ function sds_widgets_init() {
 		'name'          => __( 'After Posts', 'epic' ),
 		'id'            => 'after-posts-sidebar',
 		'description'   => __( 'This widget area is displayed below the content on single posts only.', 'epic' ),
-		'before_widget' => '<section id="after-posts-%1$s" class="after-posts after-posts-widget %2$s">',
+		'before_widget' => '<section id="after-posts-%1$s" class="widget after-posts after-posts-widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widgettitle widget-title after-posts-title">',
 		'after_title'   => '</h3>'
@@ -688,7 +688,7 @@ function sds_widgets_init() {
 		'name'          => __( 'Footer', 'epic' ),
 		'id'            => 'footer-sidebar',
 		'description'   => __( 'This widget area is displayed in the footer of all pages.', 'epic' ),
-		'before_widget' => '<section id="footer-widget-%1$s" class="footer-widget %2$s">',
+		'before_widget' => '<section id="footer-widget-%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widgettitle widget-title footer-widget-title">',
 		'after_title'   => '</h3>'
@@ -699,9 +699,9 @@ function sds_widgets_init() {
 		'name'          => __( 'Copyright Area', 'epic' ),
 		'id'            => 'copyright-area-sidebar',
 		'description'   => __( 'This widget area is designed for small text blurbs or disclaimers at the bottom of the website.', 'epic' ),
-		'before_widget' => '<section id="copyright-area-widget-%1$s" class="widget copyright-area-widget %2$s">',
+		'before_widget' => '<section id="copyright-area-widget-%1$s" class="widget copyright-area copyright-area-widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widgettitle">',
+		'before_title'  => '<h3 class="widgettitle widget-title copyright-area-widget-title">',
 		'after_title'   => '</h3>',
 	) );
 }

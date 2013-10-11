@@ -35,14 +35,8 @@ nav ul.secondary-nav li a{
 /* =Primary Navigation
 -------------------------------------------------------------- */
 nav .primary-nav{
-	width: 100%;
-	display: inline-block;
-	clear: both;
 	border-top: 1px solid #f2f2f2;
 	border-bottom: 1px solid #f2f2f2;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	position: relative;
 }
 
 nav .primary-nav li{

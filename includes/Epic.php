@@ -1,9 +1,9 @@
 <?php
 /**
- * This class manages all functionality with our Epic v2 theme.
+ * This class manages all functionality with our Epic theme.
  */
 class Epic {
-	const EPIC_VERSION = '1.0';
+	const EPIC_VERSION = '1.0.2';
 
 	private static $instance; // Keep track of the instance
 

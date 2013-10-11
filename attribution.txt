@@ -1,15 +1,15 @@
 /**
  * Font Awesome Web Font - http://fontawesome.io/
  * License: GPL Compatible (http://fontawesome.io/license/)
- * Font License: SIL OFL 1.1 (http://scripts.sil.org/OFL)
+ * Font License: SIL OFL 1.1 (http://scripts.sil.org/OFL/)
  * Code License: MIT License (http://opensource.org/licenses/mit-license.html)
- * Copyright: Dave Gandy, https://twitter.com/davegandy
+ * Copyright: Dave Gandy, https://twitter.com/davegandy/
  */
 
 /**
- * WordPress Core CSS - http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+ * WordPress Core CSS - http://codex.wordpress.org/CSS#WordPress_Generated_Classes/
  * License: GPL2
- * Copyright: WordPress.org, http://wordpress.org
+ * Copyright: WordPress.org, http://wordpress.org/
  */
  
  /**
@@ -32,4 +32,10 @@
  * Copyright: Mike Jolley, http://mikejolley.com/
  *
  * We've modified this to suit our needs.
+ */
+
+/**
+ * Menu Icon Image - /images/menu-icon-large.png
+ * License: GPL2
+ * Copyright: Slocum Design Studio, http://slocumstudio.com/
  */

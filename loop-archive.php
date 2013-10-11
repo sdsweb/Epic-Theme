@@ -24,7 +24,9 @@
 			</p>
 		</section>
 
-		<?php the_content( __( 'Continue Reading', 'epic' ) ); ?>
+		<?php the_excerpt(); ?>
+
+		<a href="<?php the_permalink(); ?>" class="more-link"><?php _e( 'Continue Reading', 'epic' ); ?></a>
 	</section>
 <?php
 		endwhile;
