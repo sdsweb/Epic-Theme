@@ -150,6 +150,6 @@ if ( ! function_exists( 'sds_copyright_branding' ) ) {
 	add_filter( 'sds_copyright_branding', 'sds_copyright_branding', 10, 2 );
 
 	function sds_copyright_branding( $text, $theme_name ) {
-		return '<a href="http://slocumstudio.com/wordpress-themes/epic-free/?utm_medium=footer-plugs&amp;utm_campaign=WordPressThemes" target="_blank">' . sprintf( __( '%1$s by Slocum Design Studio', 'epic' ), $theme_name ) . '</a>';
+		return '<a href="http://slocumstudio.com/wordpress-themes/epic-free/" target="_blank">' . sprintf( __( '%1$s by Slocum Design Studio', 'epic' ), $theme_name ) . '</a>';
 	}
 }
