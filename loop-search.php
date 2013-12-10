@@ -26,7 +26,17 @@
 				<?php endif; ?>
 			</section>
 
-			<?php the_content( __( 'Continue Reading', 'epic' ) ); ?>
+			<?php
+				// Show the excerpt if the post has one
+				if ( has_excerpt() ) :
+					the_excerpt();
+				?>
+					<p><a href="<?php the_permalink(); ?>" class="more-link read-more excerpt-more-link"><?php _e( 'Continue Reading', 'epic' ); ?></a></p>
+				<?php
+				else :
+					the_content( __( 'Continue Reading', 'epic' ) );
+				endif;
+			?>
 		</section>
 	<?php endwhile; ?>
 <?php else : // No search results ?>
