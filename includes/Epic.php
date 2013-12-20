@@ -3,7 +3,7 @@
  * This class manages all functionality with our Epic theme.
  */
 class Epic {
-	const EPIC_VERSION = '1.0.3';
+	const EPIC_VERSION = '1.0.7';
 
 	private static $instance; // Keep track of the instance
 
@@ -28,6 +28,10 @@ class Epic {
 		add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ) ); // Used to enqueue editor styles based on post type
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) ); // Enqueue all stylesheets (Main Stylesheet, Fonts, etc...)
 		add_action( 'wp_footer', array( $this, 'wp_footer' ) ); // Responsive navigation functionality
+
+		// Gravity Forms
+		add_filter( 'gform_field_input', array( $this, 'gform_field_input' ), 10, 5 ); // Add placholder to newsletter form
+		add_filter( 'gform_confirmation', array( $this, 'gform_confirmation' ), 10, 4 ); // Change confirmation message on newsletter form
 	}
 
 
@@ -76,14 +80,24 @@ class Epic {
 	 */
 	function wp_enqueue_scripts() {
 		global $sds_theme_options;
-		$protocol = is_ssl() ? 'https' : 'http';
 
-		wp_enqueue_script( 'jquery' );
-		wp_enqueue_style( 'epic', get_template_directory_uri() . '/style.css', false, self::EPIC_VERSION ); // Epic (main stylesheet)
+		$protocol = is_ssl() ? 'https' : 'http'; // Determine current protocol
+		$parent_stylesheet_uri = get_template_directory_uri() . '/style.css'; // Fetch parent stylesheet URI
+		$stylesheet_uri = get_stylesheet_uri(); // Fetch current stylesheet URI
+
+		// Epic (main stylesheet)
+		wp_enqueue_style( 'epic', $parent_stylesheet_uri, false, self::EPIC_VERSION );
+
+		// Enqueue the child theme stylesheet only if a child theme is active
+		if ( $parent_stylesheet_uri !== $stylesheet_uri )
+			wp_enqueue_style( 'epic-child', $stylesheet_uri, array( 'epic' ), self::EPIC_VERSION );
 
 		// Open Sans (include only if a web font is not selected in Theme Options)
 		if ( ! function_exists( 'sds_web_fonts' ) || empty( $sds_theme_options['web_font'] ) )
 			wp_enqueue_style( 'open-sans-web-font', $protocol . '://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,700,800', false, self::EPIC_VERSION ); // Google WebFonts (Open Sans)
+
+		// Ensure jQuery is loaded on the front end for our footer script (@see wp_footer() below)
+		wp_enqueue_script( 'jquery' );
 	}
 
 	/**
@@ -114,6 +128,36 @@ class Epic {
 			// ]]>
 		</script>
 	<?php
+	}
+
+	/*****************
+	 * Gravity Forms *
+	 *****************/
+
+	/**
+	 * This function adds the HTML5 placeholder attribute to forms with a CSS class of the following:
+	 * .mc-gravity, .mc_gravity, .mc-newsletter, .mc_newsletter classes
+	 */
+	function gform_field_input( $input, $field, $value, $lead_id, $form_id ) {
+		$form_meta = RGFormsModel::get_form_meta( $form_id );
+
+		// Ensure the current form has one of our supported classes and alter the field accordingly if we're not on admin
+		if ( ! is_admin() && in_array( $form_meta['cssClass'], array( 'mc-gravity', 'mc_gravity', 'mc-newsletter', 'mc_newsletter' ) ) )
+			$input = '<div class="ginput_container"><input name="input_' . $field['id'] . '" id="input_' . $form_id . '_' . $field['id'] . '" type="text" value="" class="large" placeholder="' . $field['label'] . '" /></div>';
+
+		return $input;
+	}
+
+	/**
+	 * This function alters the confirmation message on forms with a CSS class of the following:
+	 * .mc-gravity, .mc_gravity, .mc-newsletter, .mc_newsletter classes
+	 */
+	function gform_confirmation( $confirmation, $form, $lead, $ajax ) {
+		// Ensure the current form has one of our supported classes and alter the confirmation accordingly if we're not on admin
+		if ( in_array( $form['cssClass'], array( 'mc-gravity', 'mc_gravity', 'mc-newsletter', 'mc_newsletter' ) ) )
+			$confirmation = '<section class="mc-gravity-confirmation mc_gravity-confirmation mc-newsletter-confirmation mc_newsletter-confirmation">' . $confirmation . '</section>';
+
+		return $confirmation;
 	}
 }
 

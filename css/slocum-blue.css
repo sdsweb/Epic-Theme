@@ -54,7 +54,7 @@ nav .primary-nav li a:hover{
 	color: #fff;
 }
 
-nav .primary-nav li ul.sub-menu {
+nav .primary-nav li ul.sub-menu, .primary-nav-container li ul.children {
 	background: #3c639a;
 }
 
@@ -331,6 +331,15 @@ section.footer-widget:hover {
 
 .copyright a{
 	color: #3c639a;
+}
+
+/* ----------
+   Newsletter
+ ------------ */
+.mc-gravity .gform_heading, .mc_gravity .gform_heading, .mc-newsletter .gform_heading, .mc_newsletter .gform_heading,
+.mc-gravity_wrapper .gform_heading, .mc_gravity_wrapper .gform_heading, .mc-newsletter_wrapper .gform_heading, .mc_newsletter_wrapper .gform_heading,
+.mc-gravity-confirmation, .mc_gravity-confirmation, .mc-newsletter-confirmation, .mc_newsletter-confirmation {
+	background: #3c639a;
 }
 
 
