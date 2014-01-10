@@ -3,7 +3,7 @@
  * This class manages all functionality with our Epic theme.
  */
 class Epic {
-	const EPIC_VERSION = '1.0.8';
+	const EPIC_VERSION = '1.0.9';
 
 	private static $instance; // Keep track of the instance
 
@@ -82,15 +82,13 @@ class Epic {
 		global $sds_theme_options;
 
 		$protocol = is_ssl() ? 'https' : 'http'; // Determine current protocol
-		$parent_stylesheet_uri = get_template_directory_uri() . '/style.css'; // Fetch parent stylesheet URI
-		$stylesheet_uri = get_stylesheet_uri(); // Fetch current stylesheet URI
 
 		// Epic (main stylesheet)
-		wp_enqueue_style( 'epic', $parent_stylesheet_uri, false, self::EPIC_VERSION );
+		wp_enqueue_style( 'epic', get_template_directory_uri() . '/style.css', false, self::EPIC_VERSION );
 
 		// Enqueue the child theme stylesheet only if a child theme is active
-		if ( $parent_stylesheet_uri !== $stylesheet_uri )
-			wp_enqueue_style( 'epic-child', $stylesheet_uri, array( 'epic' ), self::EPIC_VERSION );
+		if ( is_child_theme() )
+			wp_enqueue_style( 'epic-child', get_stylesheet_uri(), array( 'epic' ), self::EPIC_VERSION );
 
 		// Open Sans (include only if a web font is not selected in Theme Options)
 		if ( ! function_exists( 'sds_web_fonts' ) || empty( $sds_theme_options['web_font'] ) )
