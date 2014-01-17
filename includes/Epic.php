@@ -3,7 +3,7 @@
  * This class manages all functionality with our Epic theme.
  */
 class Epic {
-	const EPIC_VERSION = '1.0.9';
+	const EPIC_VERSION = '1.1.1';
 
 	private static $instance; // Keep track of the instance
 
