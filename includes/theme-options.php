@@ -499,12 +499,12 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 
 				<?php settings_errors(); ?>
 
-				<h2 class="nav-tab-wrapper sds-theme-options-tab-wrap">
+				<h3 class="nav-tab-wrapper sds-theme-options-tab-wrap">
 					<a href="#general" id="general-tab" class="nav-tab sds-theme-options-tab nav-tab-active"><?php _e( 'General Options', 'epic' ); ?></a>
 					<a href="#social-media" id="social-media-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'Social Media', 'epic' ); ?></a>
 					<?php do_action( 'sds_theme_options_navigation_tabs' ); // Hook for extending tabs ?>
 					<a href="#help-support" id="help-support-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'Help/Support', 'epic' ); ?></a>
-				</h2>
+				</h3>
 
 				<form method="post" action="options.php" enctype="multipart/form-data" id="sds-theme-options-form">
 					<?php settings_fields( 'sds_theme_options' ); ?>
