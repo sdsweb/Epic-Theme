@@ -3,11 +3,11 @@
  * This class manages all functionality with our Epic theme.
  */
 class Epic {
-	const EPIC_VERSION = '1.1.1';
+	const EPIC_VERSION = '1.1.2';
 
 	private static $instance; // Keep track of the instance
 
-	/*
+	/**
 	 * Function used to create instance of class.
 	 * This is used to prevent over-writing of a variable (old method), i.e. $e = new Epic();
 	 */
@@ -20,8 +20,8 @@ class Epic {
 
 
 
-	/*
-	 * This function sets up all of the actions and filters on instance
+	/**
+	 * This function sets up all of the actions and filters on instance.
 	 */
 	function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'after_setup_theme' ) ); // Register image sizes
@@ -30,7 +30,7 @@ class Epic {
 		add_action( 'wp_footer', array( $this, 'wp_footer' ) ); // Responsive navigation functionality
 
 		// Gravity Forms
-		add_filter( 'gform_field_input', array( $this, 'gform_field_input' ), 10, 5 ); // Add placholder to newsletter form
+		add_filter( 'gform_field_input', array( $this, 'gform_field_input' ), 10, 5 ); // Add placeholder to newsletter form
 		add_filter( 'gform_confirmation', array( $this, 'gform_confirmation' ), 10, 4 ); // Change confirmation message on newsletter form
 	}
 
@@ -140,7 +140,7 @@ class Epic {
 		$form_meta = RGFormsModel::get_form_meta( $form_id );
 
 		// Ensure the current form has one of our supported classes and alter the field accordingly if we're not on admin
-		if ( ! is_admin() && in_array( $form_meta['cssClass'], array( 'mc-gravity', 'mc_gravity', 'mc-newsletter', 'mc_newsletter' ) ) )
+		if ( isset( $form['cssClass'] ) && ! is_admin() && in_array( $form_meta['cssClass'], array( 'mc-gravity', 'mc_gravity', 'mc-newsletter', 'mc_newsletter' ) ) )
 			$input = '<div class="ginput_container"><input name="input_' . $field['id'] . '" id="input_' . $form_id . '_' . $field['id'] . '" type="text" value="" class="large" placeholder="' . $field['label'] . '" /></div>';
 
 		return $input;
@@ -151,8 +151,8 @@ class Epic {
 	 * .mc-gravity, .mc_gravity, .mc-newsletter, .mc_newsletter classes
 	 */
 	function gform_confirmation( $confirmation, $form, $lead, $ajax ) {
-		// Ensure the current form has one of our supported classes and alter the confirmation accordingly if we're not on admin
-		if ( in_array( $form['cssClass'], array( 'mc-gravity', 'mc_gravity', 'mc-newsletter', 'mc_newsletter' ) ) )
+		// Confirmation message is set and form has one of our supported classes (alter the confirmation accordingly)
+		if ( isset( $form['cssClass'] ) && $form['confirmation']['type'] === 'message' && in_array( $form['cssClass'], array( 'mc-gravity', 'mc_gravity', 'mc-newsletter', 'mc_newsletter' ) ) )
 			$confirmation = '<section class="mc-gravity-confirmation mc_gravity-confirmation mc-newsletter-confirmation mc_newsletter-confirmation">' . $confirmation . '</section>';
 
 		return $confirmation;
