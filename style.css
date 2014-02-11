@@ -4,7 +4,7 @@
  * Description: Make an Epic statement with this responsive WordPress blog theme. The perfect combination of minimalism and bold design for your journal, photo stream or video blog.
  * Author: Slocum Design Studio
  * Author URI: http://slocumthemes.com/
- * Version: 1.1.2
+ * Version: 1.1.3
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl.html
  * Tags: blue, green, orange, pink, purple, red, white, light, two-columns, left-sidebar, right-sidebar, custom-colors, custom-menu, editor-style, featured-images, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, fluid-layout, responsive-layout
@@ -136,6 +136,108 @@ img {
 }
 
 .nav-button, .primary-nav-button { display: none; } /* hide the navigation button by default */
+
+
+/**
+ * Content Layout Styles
+ */
+
+/* 1 Column (Content) */
+.cols-1 article.content {
+	width: 100%;
+}
+
+/* 2 Columns (Content, Sidebar) */
+.cols-2 article.content {
+}
+
+.cols-2 aside.sidebar {
+}
+
+/* 2 Columns Right (Sidebar, Content) */
+.cols-2-r article.content {
+	float: right;
+	padding-right: 0;
+	padding-left: 2%;
+	border-right: none;
+}
+
+.cols-2-r aside.sidebar {
+	float: left;
+}
+
+/* 3 Columns (Content, Sidebar, Sidebar) */
+.cols-3 article.content {
+	width: 47.5%;
+	margin-right: 0;
+}
+
+.cols-3 aside.sidebar, .cols-3 aside.secondary-sidebar {
+	width: 23%;
+	margin: 0 0 0 1%;
+	padding: 0 0 0 1%;
+	float: left;
+}
+
+.cols-3 aside.secondary-sidebar {
+}
+
+/* 3 Columns Middle (Sidebar, Content, Sidebar) */
+.cols-3-m .content-wrapper {
+	padding: 0 25%;
+}
+
+.cols-3-m article.content {
+	width: 96%;
+	padding: 0 2%;
+	float: right;
+	border-left: 1px solid #f2f2f2;
+}
+
+.cols-3-m aside.sidebar, .cols-3-m aside.secondary-sidebar {
+	width: 47%;
+	float: right;
+}
+
+.cols-3-m aside.sidebar {
+	margin: 0 0 0 -50%;
+	padding: 0 2% 0 0;
+	float: left;
+}
+
+.cols-3-m aside.secondary-sidebar {
+	margin: 0 -150% 0 0;
+	padding: 0 0 0 2%;
+	float: right;
+}
+
+/* 3 Columns Right (Sidebar, Sidebar, Content) */
+.cols-3-r article.content {
+	width: 47%;
+	padding-right: 0;
+	padding-left: 1.5%;
+	float: right;
+	border-right: none;
+	border-left: 1px solid #f2f2f2;
+}
+
+.cols-3-r aside.sidebar, .cols-3-r aside.secondary-sidebar {
+	width: 23%;
+	margin: 0 0 0 1%;
+	padding: 0 0 0 1%;
+	float: left;
+}
+
+.cols-3-r aside.secondary-sidebar {
+}
+
+/* 3 Columns General */
+.cols-3 .widget .social-media-icons a,
+.cols-3-m .widget .social-media-icons a,
+.cols-3-r .widget .social-media-icons a {
+	margin-right: 6px;
+	margin-bottom: 6px;
+}
 
 
 /**
@@ -1752,6 +1854,75 @@ form.mc-gravity, form.mc_gravity, form.mc-newsletter, form.mc_newsletter {
 		height: 3em;*/
 	}
 }
+
+@media only screen and (max-width: 960px) {
+	/* 3 Columns (Content, Sidebar, Sidebar) */
+	.cols-3 article.content {
+		width: 65%;
+		margin-right: 0;
+	}
+
+	.cols-3 aside.sidebar, .cols-3 aside.secondary-sidebar {
+		width: 31%;
+		margin: 0;
+		padding: 0 0 0 2%;
+	}
+
+	.cols-3 aside.secondary-sidebar {
+		float: right;
+	}
+
+	/* 3 Columns Middle (Sidebar, Content, Sidebar) */
+	.cols-3-m .content-wrapper {
+		padding: 0 7%;
+	}
+
+	.cols-3-m article.content {
+		width: 100%;
+		float: none;
+	}
+
+	.cols-3-m .post-image img {
+		margin: 0 auto;
+		display: block;
+	}
+
+	.cols-3-m aside.sidebar, .cols-3-m aside.secondary-sidebar {
+		width: 48%;
+		float: left;
+	}
+
+	.cols-3-m aside.sidebar {
+		margin: 0;
+		padding: 0 2% 0 0;
+	}
+
+	.cols-3-m aside.secondary-sidebar {
+		margin: 0;
+		padding: 0 0 0 2%;
+	}
+
+	/* 3 Columns Right (Sidebar, Sidebar, Content) */
+	.cols-3-r article.content {
+		width: 65%;
+		margin-left: 0;
+		margin-right: 0;
+		float: right;
+	}
+
+	.cols-3-r aside.sidebar, .cols-3-r aside.secondary-sidebar {
+		width: 31%;
+		margin: 0;
+		padding: 0 2% 0 0;
+		float: left;
+	}
+
+	.cols-3-r aside.secondary-sidebar {
+		margin-bottom: 1em;
+		clear: left;
+	}
+}
+
 @media only screen and (min-width: 769px) and (max-width: 1023px) {
 	section.logo-box {
 		width: 100%;
@@ -1783,7 +1954,7 @@ form.mc-gravity, form.mc_gravity, form.mc-newsletter, form.mc_newsletter {
 		line-height: 2em;
 	}
 
-	article-content h1, h1.page-title, h1{
+	article.content h1, h1.page-title, h1{
 		font-size: 28px;
 		line-height: 28px;
 	}
@@ -1793,6 +1964,72 @@ form.mc-gravity, form.mc_gravity, form.mc-newsletter, form.mc_newsletter {
 	header#header {
 		/*margin-top: 2em;*/
 	}
+
+	/* 3 Columns (Content, Sidebar, Sidebar) */
+	.cols-3 article.content {
+		width: 100%;
+		padding: 0;
+		margin-right: 0;
+	}
+
+	.cols-3 aside.sidebar, .cols-3 aside.secondary-sidebar {
+		width: 100%;
+		margin: 1em 0 0;
+		padding: 0;
+		float: none;
+	}
+
+	.cols-3 aside.secondary-sidebar {
+	}
+
+	/* 3 Columns Middle (Sidebar, Content, Sidebar) */
+	.cols-3-m .content-wrapper {
+		padding: 0;
+	}
+
+	.cols-3-m article.content {
+		width: 100%;
+		padding: 0;
+		float: none;
+		border-left: none;
+	}
+
+	.cols-3-m .post-image img {
+	}
+
+	.cols-3-m aside.sidebar, .cols-3-m aside.secondary-sidebar {
+		width: 100%;
+		margin: 1em 0 0;
+		padding: 0;
+		float: none;
+	}
+
+	.cols-3-m aside.sidebar {
+	}
+
+	.cols-3-m aside.secondary-sidebar {
+	}
+
+	/* 3 Columns Right (Sidebar, Sidebar, Content) */
+	.cols-3-r article.content {
+		width: 100%;
+		padding: 0;
+		margin-left: 0;
+		margin-right: 0;
+		float: right;
+		border-left: none;
+	}
+
+	.cols-3-r aside.sidebar, .cols-3-r aside.secondary-sidebar {
+		width: 100%;
+		margin: 1em 0 0;
+		padding: 0;
+		float: none;
+	}
+
+	.cols-3-r aside.secondary-sidebar {
+	}
+
 
 	/* ------------------
 	   Navigation Button
