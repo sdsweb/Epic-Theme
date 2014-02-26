@@ -187,7 +187,7 @@ if ( ! function_exists( 'sds_theme_options_ads' ) ) {
 	function sds_theme_options_ads() {
 	?>
 		<div class="sds-theme-options-ad">
-			<a href="http://slocumthemes.com/wordpress-themes/epic-pro/" target="_blank" class="sds-theme-options-upgrade-ad">
+			<a href="<?php echo esc_url( __( 'http://slocumthemes.com/wordpress-themes/epic-pro/', 'epic' ) ); ?>" target="_blank" class="sds-theme-options-upgrade-ad">
 				<h3><?php _e( 'Upgrade to Epic Pro!', 'epic' ); ?></h3>
 				<ul>
 					<li><?php _e( 'Priority Ticketing Support', 'epic' ); ?></li>
@@ -212,17 +212,17 @@ if ( ! function_exists( 'sds_theme_options_upgrade_cta' ) ) {
 		switch( $type ) :
 			case 'color-schemes':
 			?>
-				<p><?php printf( __( '%1$s and receive more color schemes!', 'epic' ), '<a href="http://slocumthemes.com/wordpress-themes/epic-pro/" target="_blank">Upgrade to Epic Pro</a>' ); ?></p>
+				<p><?php printf( __( '<a href="%1$s">Upgrade to Epic Pro</a> and receive more color schemes!', 'epic' ), esc_url( 'http://slocumthemes.com/wordpress-themes/epic-pro/' ) ); ?></p>
 			<?php
 			break;
 			case 'web-fonts':
 			?>
-				<p><?php printf( __( '%1$s to use more web fonts!', 'epic' ), '<a href="http://slocumthemes.com/wordpress-themes/epic-pro/" target="_blank">Upgrade to Epic Pro</a>' ); ?></p>
+				<p><?php printf( __( '<a href="%1$s">Upgrade to Epic Pro</a> to use more web fonts!', 'epic' ), esc_url( 'http://slocumthemes.com/wordpress-themes/epic-pro/' ) ); ?></p>
 			<?php
 			break;
 			case 'help-support':
 			?>
-				<p><?php printf( __( '%1$s to receive priority ticketing support!', 'epic' ), '<a href="http://slocumthemes.com/wordpress-themes/epic-pro/" target="_blank">Upgrade to Epic Pro</a>' ); ?></p>
+				<p><?php printf( __( '<a href="%1$s">Upgrade to Epic Pro</a> to receive priority ticketing support!', 'epic' ), esc_url( 'http://slocumthemes.com/wordpress-themes/epic-pro/' ) ); ?></p>
 			<?php
 			break;
 		endswitch;
@@ -234,7 +234,7 @@ if ( ! function_exists( 'sds_theme_options_help_support_tab_content' ) ) {
 
 	function sds_theme_options_help_support_tab_content( ) {
 	?>
-		<p><?php printf( __( 'If you\'d like to create a support request, please visit the %1$s.', 'epic' ), '<a href="http://wordpress.org/themes/epic-pro/" target="_blank">Epic Forums on WordPress.org</a>' ); ?></p>
+		<p><?php printf( __( 'If you\'d like to create a support request, please visit the <a href="%1$s">Epic Forums on WordPress.org</a>.', 'epic' ), esc_url( 'http://wordpress.org/support/theme/epic/' ) ); ?></p>
 	<?php
 	}
 }
@@ -243,6 +243,6 @@ if ( ! function_exists( 'sds_copyright_branding' ) ) {
 	add_filter( 'sds_copyright_branding', 'sds_copyright_branding', 10, 2 );
 
 	function sds_copyright_branding( $text, $theme_name ) {
-		return '<a href="http://slocumthemes.com/wordpress-themes/epic-free/" target="_blank">' . sprintf( __( '%1$s by Slocum Studio', 'epic' ), $theme_name ) . '</a>';
+		return sprintf( __( '<a href="%1$s">%2$s by Slocum Studio</a>', 'epic' ), esc_url( 'http://slocumthemes.com/wordpress-themes/epic-free/' ), $theme_name );
 	}
 }
