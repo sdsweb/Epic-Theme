@@ -3,7 +3,7 @@
  * This class manages all functionality with our Epic theme.
  */
 class Epic {
-	const EPIC_VERSION = '1.1.4';
+	const EPIC_VERSION = '1.1.6';
 
 	private static $instance; // Keep track of the instance
 
@@ -45,6 +45,13 @@ class Epic {
 	function after_setup_theme() {
 		add_image_size( 'epic-765x400', 765, 400, true ); // Used for featured images on blog page and single posts
 		add_image_size( 'epic-1200x400', 1200, 400, true ); // Used for featured images on full width pages
+
+		// Change default core markup for search form, comment form, and comments, etc... to HTML5
+		add_theme_support( 'html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list'
+		) );
 	}
 
 	/**
