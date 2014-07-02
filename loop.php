@@ -13,7 +13,9 @@
 			<p class="latest-post-date"><?php the_time( 'F j, Y' ); ?></p>
 		</section>
 
-		<?php the_content(); ?>
+		<section class="content-wrap">
+			<?php the_content(); ?>
+		</section>
 
 		<section class="clear"></section>
 
