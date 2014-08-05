@@ -12,7 +12,10 @@
 			<h1 class="page-title"><?php the_title(); ?></h1>
 		</section>
 
-		<?php the_content(); ?>
+
+		<section class="content-wrap">
+			<?php the_content(); ?>
+		</section>
 
 		<section class="clear"></section>
 

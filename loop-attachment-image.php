@@ -61,8 +61,9 @@
 		</section>
 
 		<section class="entry-description">
-			<?php the_content(); ?>
-
+			<section class="content-wrap">
+				<?php the_content(); ?>
+			</section>
 			<section class="clear"></section>
 
 			<section class="single-post-navigation single-post-pagination wp-link-pages">
