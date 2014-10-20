@@ -2,9 +2,20 @@
 Theme: Epic Free
 Author: Slocum Themes/Slocum Design Studio
 Author URI: http://slocumthemes.com
-Current Version: 1.2.2
+Current Version: 1.2.3
 ==========================================
 
+
+1.2.3 // October 15 2014
+------------------------
+- Updated to latest version of SDS Core
+- Added CSS classes on sidebar containers for better CSS targeting (added "widgets" and "no-widgets" classes)
+- Added WooCommerce support
+- Adjusted "mc-gravity" support to allow for multiple CSS classes
+- Adjusted default social media styling in sidebar to match social media widget output
+- Fixed bug where some menu items would overlap in the Primary Navigation area
+- Fixed bug where site title was not properly styled on responsive views
+- Updated POT file
 
 1.2.2 // July 02 2014
 ---------------------

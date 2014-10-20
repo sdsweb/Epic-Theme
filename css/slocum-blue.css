@@ -6,7 +6,7 @@ a {
 	color: #3c639a;
 }
 
-header h1 a{
+header #title a{
 	color: #3c639a;
 }
 
@@ -91,15 +91,15 @@ nav .primary-nav li ul.sub-menu, .primary-nav-container li ul.children {
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #362f2d;  
+   color: #362f2d;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #362f2d;  
+   color: #362f2d;
 }
 
-:-ms-input-placeholder {  
-   color: #362f2d;  
+:-ms-input-placeholder {
+   color: #362f2d;
 }
 
 
@@ -203,7 +203,7 @@ figure.latest-post-image img{
 
 article.content .after-posts-widget a {
 	color: #fff;
-	
+
 }*/
 
 footer.post-footer{
@@ -226,7 +226,7 @@ footer.pagination{
 
 /* =Social Media Widget
 -------------------------------------------------------------- */
-.widget .social-media-icons a, .footer-widget .social-media-icons a {
+.social-media-icons a, .widget .social-media-icons a, .footer-widget .social-media-icons a {
 	background: #3c639a;
 }
 
@@ -286,7 +286,7 @@ ol.comment-list > li:nth-child(even) article.comment {
 	color: #986819;
 }
 
-#comments ol.comment-list > li  article.bypostauthor .comment-meta a { 
+#comments ol.comment-list > li  article.bypostauthor .comment-meta a {
 	color: #769ac9;
 }
 
@@ -396,7 +396,7 @@ section.footer-widget:hover {
 	nav ul.top-nav li a, nav .primary-nav li a {
 		color: #3c639a;
 		border-bottom: 1px solid rgba(0,0,0,.2);
-		border-top: 1px solid rgba(255,255,255,.1); 
+		border-top: 1px solid rgba(255,255,255,.1);
 	}
 
 	nav .primary-nav li a {
