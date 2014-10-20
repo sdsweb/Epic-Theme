@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Epic 1.2.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/epic\n"
-"POT-Creation-Date: 2014-10-14 20:38:27+00:00\n"
+"POT-Creation-Date: 2014-10-20 20:44:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -107,27 +107,47 @@ msgstr ""
 msgid "Upgrade Now!"
 msgstr ""
 
-#: functions.php:235 functions.php:248 functions.php:261
+#: functions.php:223
+msgid "Introducing Conductor Plugin"
+msgstr ""
+
+#: functions.php:225
+msgid "Custom Layouts"
+msgstr ""
+
+#: functions.php:226
+msgid "Custom Content Displays"
+msgstr ""
+
+#: functions.php:227
+msgid "No Code Required!"
+msgstr ""
+
+#: functions.php:230
+msgid "Get Conductor!"
+msgstr ""
+
+#: functions.php:248 functions.php:261 functions.php:274
 msgid "Upgrade to Epic Pro"
 msgstr ""
 
-#: functions.php:236
+#: functions.php:249
 msgid "and receive more color schemes!"
 msgstr ""
 
-#: functions.php:249
+#: functions.php:262
 msgid "to use more web fonts!"
 msgstr ""
 
-#: functions.php:262
+#: functions.php:275
 msgid "to receive priority ticketing support!"
 msgstr ""
 
-#: functions.php:281
+#: functions.php:294
 msgid "If you'd like to create a support request, please visit the <a href=\"%1$s\">Epic Forums on WordPress.org</a>."
 msgstr ""
 
-#: functions.php:290
+#: functions.php:303
 msgid "<a href=\"%1$s\">%2$s by Slocum Studio</a>"
 msgstr ""
 
@@ -139,31 +159,31 @@ msgstr ""
 msgid "Navigation"
 msgstr ""
 
-#: includes/Epic.php:112
+#: includes/Epic.php:111
 msgid "Layout Settings"
 msgstr ""
 
-#: includes/Epic.php:127
+#: includes/Epic.php:126
 msgid "Post"
 msgstr ""
 
-#: includes/Epic.php:131
+#: includes/Epic.php:130
 msgid "Looking to configure a unique layout for this %1$s? %2$s."
 msgstr ""
 
-#: includes/Epic.php:231
+#: includes/Epic.php:230
 msgid "Upgrade Epic"
 msgstr ""
 
-#: includes/Epic.php:250
+#: includes/Epic.php:249
 msgid "<strong>Premium support</strong>, more Customizer options, color schemes, web fonts, and more! %s."
 msgstr ""
 
-#: includes/Epic.php:254 includes/Epic.php:267
+#: includes/Epic.php:253 includes/Epic.php:266
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: includes/Epic.php:263
+#: includes/Epic.php:262
 msgid "Looking for more color customizations? %s."
 msgstr ""
 
