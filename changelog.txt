@@ -1,10 +1,22 @@
 ==========================================
 Theme: Epic Free
 Author: Slocum Themes/Slocum Design Studio
-Author URI: http://slocumthemes.com
-Current Version: 1.2.3
+Author URI: http://slocumthemes.com/
+Current Version: 1.2.4
 ==========================================
 
+1.2.4 // November 24 2014
+-------------------------
+- Updated to latest version of SDS Core
+- Updated editor-styles.css to better account for new core WordPress editor CSS adjustments in 4.0
+- Fixed issue with CSS reset where <em> tags did not properly emphasise text
+- Changed add_filter() function on 'wp_head' action to add_action()
+- Added WordPress 4.1 title-tag support and moved all meta tags from <head> element to 'wp_head'
+- Reorganized file structure
+- Updated theme description
+- Minor adjustments to CSS
+- Fixed possible PHP warning with "mc-gravity" Gravity Forms functionality
+- Fixed "mc-gravity" functionality for checking if form contained correct CSS classes
 
 1.2.3 // October 20 2014
 ------------------------

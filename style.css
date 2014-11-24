@@ -1,10 +1,10 @@
 /**
  * Theme Name: Epic
  * Theme URI: http://slocumthemes.com/wordpress-themes/epic-free/
- * Description: Make an Epic statement with this responsive WordPress blog theme. The perfect combination of minimalism and bold design for your journal, photo stream or video blog.
+ * Description: Make an Epic statement with this responsive WordPress blog theme. The perfect combination of minimalism and bold design for your journal, photo stream or video blog. Now supports live front-end text widget editing via <a href="http://wordpress.org/plugins/note/" target="_blank">Note</a>. More info - <a href="http://wordpress.org/plugins/note/" target="_blank">http://wordpress.org/plugins/note/</a>.
  * Author: Slocum Design Studio
  * Author URI: http://slocumthemes.com/
- * Version: 1.2.3
+ * Version: 1.2.4
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl.html
  * Tags: blue, green, orange, pink, purple, red, white, light, two-columns, left-sidebar, right-sidebar, custom-colors, custom-menu, editor-style, featured-images, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, fluid-layout, responsive-layout
@@ -59,7 +59,7 @@ table {
 	border-spacing: 0;
 }
 
-address, caption, cite, code, dfn, em, var {
+address, caption, cite, code, dfn, var {
 	font-weight: normal;
 	font-style: normal;
 }
@@ -540,7 +540,7 @@ nav ul.top-nav .sub-menu li > ul {
     float: left;
     background: #565656;
 
-	/* Ensure that all long words are kepth together. */
+	/* Ensure that all long words are kept together. */
 	-ms-word-wrap: normal;
 	word-wrap: normal;
 }
@@ -1506,7 +1506,8 @@ aside.sidebar{
 	margin-bottom: 15px;
 }
 
-.sidebar .widget:last-child{
+.sidebar .widget:last-child {
+	margin-bottom: 0;
 	border: none;
 }
 
@@ -1568,7 +1569,7 @@ aside.sidebar{
 	 -------------  */
 
 footer#footer{
-	border-top: 1px solid;
+	border-top: 1px solid #f2f2f2;
 	border-top-color: rgba(0, 0, 0, .15);
 }
 
@@ -1880,7 +1881,7 @@ form.mc-gravity, form.mc_gravity, form.mc-newsletter, form.mc_newsletter {
 }
 
 .mc-gravity-confirmation, .mc_gravity-confirmation, .mc-newsletter-confirmation, .mc_newsletter-confirmation {
-	width: 98%;
+	width: 96%;
 	padding: 2%;
 	color: #fff;
 	background: #565656;
@@ -1919,7 +1920,7 @@ form.mc-gravity, form.mc_gravity, form.mc-newsletter, form.mc_newsletter {
 }
 
 .woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span, .woocommerce #content nav.woocommerce-pagination ul li a, .woocommerce #content nav.woocommerce-pagination ul li span, .woocommerce-page nav.woocommerce-pagination ul li a, .woocommerce-page nav.woocommerce-pagination ul li span, .woocommerce-page #content nav.woocommerce-pagination ul li a, .woocommerce-page #content nav.woocommerce-pagination ul li span {
-	padding: 0px 16px 0 0;
+	padding: 0 16px 0 0;
 }
 
 .woocommerce nav.woocommerce-pagination ul li:last-child a,
@@ -1937,12 +1938,14 @@ form.mc-gravity, form.mc_gravity, form.mc-newsletter, form.mc_newsletter {
 .woocommerce #content nav.woocommerce-pagination ul li a:hover, .woocommerce #content nav.woocommerce-pagination ul li a:focus,
 .woocommerce-page nav.woocommerce-pagination ul li a:hover, .woocommerce-page #content nav.woocommerce-pagination ul li a:hover,
 .woocommerce-page #content nav.woocommerce-pagination ul li a:focus {
+	color: #565656 !important;
 }
 
 .woocommerce nav.woocommerce-pagination ul li a:active, .woocommerce nav.woocommerce-pagination ul li a:active,
 .woocommerce #content nav.woocommerce-pagination ul li a:active, .woocommerce #content nav.woocommerce-pagination ul li a:active,
 .woocommerce-page nav.woocommerce-pagination ul li a:active, .woocommerce-page #content nav.woocommerce-pagination ul li a:active,
 .woocommerce-page #content nav.woocommerce-pagination ul li a:active {
+	color: #565656 !important;
 }
 
 .woocommerce nav.woocommerce-pagination ul li span.current,
@@ -1953,7 +1956,7 @@ form.mc-gravity, form.mc_gravity, form.mc-newsletter, form.mc_newsletter {
 }
 
 .woocommerce nav.woocommerce-pagination ul li a:active, .woocommerce nav.woocommerce-pagination ul li a:active, .woocommerce #content nav.woocommerce-pagination ul li a:active, .woocommerce #content nav.woocommerce-pagination ul li a:active, .woocommerce-page nav.woocommerce-pagination ul li a:active, .woocommerce-page nav.woocommerce-pagination ul li a:active, .woocommerce-page #content nav.woocommerce-pagination ul li a:active, .woocommerce-page #content nav.woocommerce-pagination ul li a:active {
-	color: #fff !important;
+	color: #565656 !important;
 }
 
 .woocommerce nav.woocommerce-pagination, .woocommerce #content nav.woocommerce-pagination, .woocommerce-page nav.woocommerce-pagination, .woocommerce-page #content nav.woocommerce-pagination {
@@ -2247,7 +2250,7 @@ ul.woocommerce-error {
 		overflow: visible;
 		line-height: 1.5em;
 		font-size: 16px;
-		font-weight: 400px;
+		font-weight: 400;
 		text-transform: uppercase;
 		z-index: 2;
 	}
@@ -2616,11 +2619,16 @@ ul.woocommerce-error {
 
 
 	/* Footer Widgets */
-	section.footer-widget{
+	section.footer-widget {
 		width: 96%;
 		margin: 0 auto 1em;
 		padding: 1%;
 		display: block;
+	}
+
+	section.footer-widget:last-child {
+		margin-right: auto;
+		margin-left: auto;
 	}
 }
 
