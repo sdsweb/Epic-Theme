@@ -2,8 +2,17 @@
 Theme: Epic Free
 Author: Slocum Themes/Slocum Design Studio
 Author URI: http://slocumthemes.com/
-Current Version: 1.2.4
+Current Version: 1.2.6
 ==========================================
+
+
+1.2.6 // January 30 2015
+------------------------
+- Updated to latest version of SDS Core
+- Fixed issue where editor styles were not loaded correctly when new content was created
+- Added screen reader CSS declarations
+- Updated Slocum Themes links throughout theme
+- Updated the_time() function to reference date format specified in settings
 
 1.2.4 // November 24 2014
 -------------------------
