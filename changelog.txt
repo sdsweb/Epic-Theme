@@ -2,9 +2,12 @@
 Theme: Epic Free
 Author: Slocum Themes/Slocum Design Studio
 Author URI: http://slocumthemes.com/
-Current Version: 1.2.6
+Current Version: 1.2.7
 ==========================================
 
+1.2.7 // April 23 2015
+------------------------
+- Updated TGM Plugin Activation to version 2.4.1
 
 1.2.6 // January 30 2015
 ------------------------
