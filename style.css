@@ -69,10 +69,8 @@ q:before, q:after {
 	content: '';
 }
 
-ul {
-	list-style: none;
-}
-	
+ul {}
+
 mark{
 	background: none;
 }
@@ -434,6 +432,9 @@ header .header-call-to-action .widget_search {
 	overflow: auto;
 }
 
+header ul li {
+	list-style-type: none;
+}
 
 aside.nav-options{
 	width: 36%;
@@ -1555,7 +1556,7 @@ aside.sidebar{
 }
 
 .widget ul li, .footer-widget ul li {
-	padding: 0.25em;
+	/*padding: 0.25em;*/
 }
 
 .widget table, .footer-widget table {
@@ -1594,7 +1595,13 @@ aside.sidebar{
 	transform: scale(1.15);
 }
 
+.widget_nav_menu ul li {
+	list-style-type: none;
+}
 
+.widget ul {
+	padding-left: 2em;
+}
 
 /*   -------------
 	   Footer
@@ -1634,6 +1641,7 @@ section.footer-widget{
 
 section.footer-widget ul{
 	margin-left: 20px;
+	padding-left: 0;
 }
 
 .footer-widget-last {
